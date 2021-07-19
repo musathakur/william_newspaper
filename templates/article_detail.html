@@ -1,0 +1,23 @@
+<!doctype html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Article Detail</title>
+</head>
+<body>
+    {% block content %}
+        <div class="article-entry">
+            <h2>{{ object.title }}</h2>
+            <p>by {{ object.author }} | {{ object.date }}</p>
+            <p>{{ object.body }}</p>
+        </div>
+        <p><a href="{% url 'article_edit' article.pk %}">Edit</a> |
+        <a href="{% url 'article_delete' article.pk %}">Delete</a></p>
+        <p>Back to <a href="{% url 'article_list' %}">All Articles</a>.</p>
+    {% endblock content %}
+</body>
+</html>
